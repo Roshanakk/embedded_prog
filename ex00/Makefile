@@ -4,7 +4,7 @@ CC		= avr-gcc
 OBJCOPY	= avr-objcopy
 AVRDUDE	= avrdude
 
-CFLAGS	= -Wall -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU)
+CFLAGS	= -Wall -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -I./
 
 PROGRAMMER	= arduino
 PORT	= /dev/ttyUSB0
@@ -18,11 +18,11 @@ all: hex flash
 
 hex: $(TARGET).hex
 
-$(TARGET).hex: $(TARGET).elf
+$(TARGET).hex: $(TARGET).bin
 	$(OBJCOPY) -O ihex -R .eeprom $< $@
 
-$(TARGET).elf: $(TARGET).bin
-	$(CC) $(CFLAGS) $< -o $@
+# $(TARGET).elf: $(TARGET).bin
+# 	$(CC) $(CFLAGS) $< -o $@
 
 $(TARGET).bin: $(TARGET).c
 	$(CC) $(CFLAGS) -c -o main.bin main.c
@@ -33,4 +33,4 @@ flash: hex
 re: clean all
 
 clean:
-	rm -f *.o *.elf *.hex
+	rm -f *.o *.bin *.hex
