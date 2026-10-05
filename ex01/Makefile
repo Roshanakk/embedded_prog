@@ -20,9 +20,6 @@ hex: $(TARGET).hex
 $(TARGET).hex: $(TARGET).bin
 	$(OBJCOPY) -O ihex -R .eeprom $< $@
 
-# $(TARGET).elf: $(TARGET).bin
-# 	$(CC) $(CFLAGS) $< -o $@
-
 $(TARGET).bin: $(TARGET).c
 	$(CC) $(CFLAGS) -c -o main.bin main.c
 
