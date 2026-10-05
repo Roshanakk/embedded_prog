@@ -4,7 +4,7 @@ CC		= avr-gcc
 OBJCOPY	= avr-objcopy
 AVRDUDE	= avrdude
 
-CFLAGS	= -Wall -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU)
+CFLAGS	= -Wall -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -I./
 
 PROGRAMMER	= arduino
 PORT	= /dev/ttyUSB0

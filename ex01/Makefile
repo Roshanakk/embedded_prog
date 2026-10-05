@@ -12,6 +12,7 @@ BAUD	= 115200
 
 TARGET = main
 
+
 all: hex flash
 
 hex: $(TARGET).hex
