@@ -6,10 +6,10 @@ int main(void) {
 	DDRD &= ~(1 << PD2); 
 
 	while (1) {
-		if (PIND & (1 << PD2))
-			PORTB &= ~(1 << PB0);
+		if (PIND & (1 << PD2)) // si le bouton PD2 est HIGH cad non pressé
+			PORTB &= ~(1 << PB0); // on éteint la LED PB0
 		else
-			PORTB |= (1 << PB0);   
+			PORTB |= (1 << PB0);   // on l'allume
 
 	}
 
@@ -25,4 +25,4 @@ int main(void) {
 
 
 
-//checker DDRB, DDRC
+// util/delay.h ???
