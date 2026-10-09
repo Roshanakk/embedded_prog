@@ -4,7 +4,6 @@
 
 # include <stdio.h>
 # include <avr/io.h>
-
-int now(void);
+# include "util/delay.h"
 
 #endif
