@@ -13,7 +13,7 @@ int main(void) {
 		_delay_ms(10);
 
 		uint8_t change = prev_pind ^ PIND; // on cree un byte, les bits changes sont a 1
-		int pd2_changed_and_low = ~PIND & (change & (1 << PD2)); // booleen qui est 1 si le bit PD2 a change
+		int pd2_changed_and_low = ~PIND & (change & (1 << PD2)); // booleen qui est 1 si le bit PD2 a change et qu'il est presse (ne l'etait pas avant)
 
 		prev_pind = PIND; //PIND historique
 
